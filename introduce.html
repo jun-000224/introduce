@@ -11,13 +11,14 @@
 
         #container {
             display: flex;
-            min-height: 700px;
+            min-height: 100vh;
         }
 
         /* 좌측 사이드바 */
         #left-sidebar {
             width: 260px;
-            background: linear-gradient(to bottom, #2e3192, #8e2de2, #ffffff);
+            background: linear-gradient(to bottom, #101c5f, #E8A9A9);
+            color: white;
             padding: 20px;
             box-sizing: border-box;
             border-right: 1px solid gray;
@@ -28,51 +29,121 @@
 
         /* 우측 사이드바 */
         #right-sidebar {
-        width: 400px;
-        height: 100vh; 
-        padding: 20px;
-        box-sizing: border-box;
-        border-left: 1px solid gray;
-
-        background:
-            linear-gradient(to top, rgba(0, 0, 0, 0.9) 20%, rgba(255, 255, 255, 0) 80%),
-            url('media/firework.png') no-repeat center bottom;
-        background-size: auto; /* 이미지 원본 크기 유지 */
-        background-position: center bottom;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end; 
-        align-items: center;
-        color: #333;
-        font-family: "맑은 고딕", Malgun Gothic, sans-serif;
+            width: 270px; 
+            padding: 0;
+            box-sizing: border-box;
+            border-left: 1px solid gray;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+            font-family: "맑은 고딕", Malgun Gothic, sans-serif;
+            background-color: #f0f0f0; 
         }
 
-        #calendar,
+        /* 우측 상단 이미지 컨테이너 */
+        #firework-image-container {
+            width: 100%;
+            height: 30vh; 
+            background: url('media/firework.png') no-repeat center top; 
+            background-size: cover; 
+        }
+
+        /* 그라데이션 및 달력/시간 컨테이너 */
+        .gradient-and-widgets {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 20px;
+            box-sizing: border-box;
+            
+            background: linear-gradient(to bottom, 
+                        rgba(32, 0, 32, 0.979) 0%,  
+                        rgba(255, 255, 255, 0.8) 100% 
+            );
+        }
+
+        .calendar-time-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* 달력 스타일 */
+        #calendar {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px; 
+            border-radius: 8px;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            user-select: none;
+            text-align: center;
+        }
+        
+        #calendar table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed; 
+        }
+        
+        #calendar th,
+        #calendar td {
+            border: 1px solid #ccc;
+            padding: 5px 2px; 
+            font-size: 0.85em; 
+            text-align: center;
+            box-sizing: border-box; 
+        }
+        
+        #calendar th {
+            background-color: transparent;
+            color: black;
+        }
+        
+        #calendar td {
+            height: 20px;
+            color: black;
+        }
+        
+        #calendar td.today {
+            background-color: #ffd700;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 50%; 
+        }
+
+        /* 시간 표시 스타일 */
         #current-time-display {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 10px 15px;
-        border-radius: 8px;
-        margin: 6px 0;
-        width: fit-content;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        user-select: none;
+            font-weight: bold;
+            color: white; 
+            user-select: none;
+            text-align: center;
+            width: fit-content;
+            margin-bottom: 5px; 
+            font-size : 25px;
         }
 
-        /* 달력과 시간 스타일 */
-        #calendar,
-        #current-time-display {
-        background: rgba(255, 255, 255, 0.9);
-        padding: 10px 15px;
-        border-radius: 8px;
-        margin: 6px 0;
-        width: fit-content;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        user-select: none;
+        /* 메모장 스타일 */
+        #memo-area {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            resize: vertical;
+            font-family: "맑은 고딕", Malgun Gothic, sans-serif;
+            font-size: 0.9em;
+            line-height: 1.5;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: auto;
         }
 
-        /* Sidebar 내부 요소 간격 */
-        #left-sidebar > div,
+
+        /* Sidebar 내부 요소 간격 (좌측 사이드바) */
         #left-sidebar > img,
         #left-sidebar > h1,
         #left-sidebar > p,
@@ -80,6 +151,7 @@
         #left-sidebar > a {
             margin: 0;
             padding: 0;
+            color: white; 
         }
 
         #left-sidebar img {
@@ -100,12 +172,11 @@
         a { color: white; text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-
         /* 메인 콘텐츠 */
         #contents {
             flex: 1;
             background: linear-gradient(to bottom, #f0f8ff, #e6f2ff);
-            color: black;          
+            color: black;
             padding: 20px;
             box-sizing: border-box;
         }
@@ -120,17 +191,17 @@
         }
 
         table {
-            width: 100%; 
-            border: 1px solid #222; 
-            border-collapse: collapse; 
+            width: 100%;
+            border: 1px solid #222;
+            border-collapse: collapse;
         }
 
         thead { background: #eee; }
 
         th, td {
-            border: 1px solid #ccc; 
-            padding: 5px;  
-            font-size: 0.9em; 
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 0.9em;
             text-align: center;
         }
 
@@ -139,85 +210,21 @@
             font-weight: bold;
             margin-bottom: 5px;
         }
-
-
-        /* 달력 스타일 */
-        #calendar {
-            width: 100%;
-            text-align: center;
-        }
-
-        #calendar table {
-            width: 50%;
-            border-collapse: collapse;
-        }
-
-        #calendar th, #calendar td {
-            border: 3px solid #ccc; 
-            padding: 5px;
-        }
-
-        #calendar th {
-            background-color: transparent;
-            color: black;
-        }
-
-        #calendar td {
-            height: 20px;
-            color: black;
-        }
-
-        #calendar td.today {
-            background-color: rgba(0,0,0,0.1);
-            border-radius: 50%;
-            font-weight: bold;
-        }
-
-        
-    #right-sidebar {
-        width: 200px;
-        height: 100vh; 
-        padding: 20px;
-        box-sizing: border-box;
-        border-left: 1px solid gray;
-
-        background:
-
-            url('media/firework.png') no-repeat center top,
- 
-            linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 20%),
-            
-            linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%);
-        background-size: cover, 100% 100%, 100% 100%; 
-        background-position: center top, top, top; 
-
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end; /* 내부 요소를 하단으로 정렬 */
-        align-items: center;
-        color: #333;
-        font-family: "맑은 고딕", Malgun Gothic, sans-serif;
-        }
-
     </style>
 </head>
 <body>
     <div id="container">
-        <!-- 좌측 사이드바 -->
         <div id="left-sidebar">
             <img src="media/akaza.png" alt="프로필 사진">
-            <h1 style="color:white">Dong Jun Lee</h1>    
-            <p style="text-shadow:#222; color:white;">"너 개발자가 되어라"</p>
-            <p style="color:white"><small>Incheon, Korea</small></p>
-            <p style="color:white"><small>abc123@naver.com</small></p>   
+            <h1>Dong Jun Lee</h1>
+            <p>"너 개발자가 되어라"</p>
+            <p><small>Incheon, Korea</small></p>
+            <p><small>abc123@naver.com</small></p>
 
-            <h2 style="color:white">Github</h2>
+            <h2>Github</h2>
             <a href="https://github.com/jun-000224" target="_blank"><small>jun-000224</small></a>
         </div>
 
-
-
-        <!-- 메인 콘텐츠 -->
         <div id="contents">
             <section>
                 <h2 class="subtitle">
@@ -237,16 +244,16 @@
                         <ul>
                             <li>HTML/CSS/JAVASCRIPT</li>
                             <li>어려워요</li>
-                            <li>ㅠㅠ</li> 
+                            <li>ㅠㅠ</li>
                         </ul>
                     </li>
                     <li>백엔드
                         <ul>
                             <li>자바 재밌어요</li>
                             <li>오라클도 재밌어요</li>
-                        </ul>                        
+                        </ul>
                     </li>
-                </ul>             
+                </ul>
             </section>
 
             <section>
@@ -266,45 +273,49 @@
                     Education
                 </h2>
                 <table>
-                  <caption></caption>
-                  <thead>
-                      <tr>
-                          <th>내용</th>
-                          <th>상세</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>컴퓨터공학과</td>
-                          <td>졸업예정</td>
-                      </tr>
-                      <tr>
-                          <td>SQLD</td>
-                          <td>합격</td>
-                      </tr>
-                      <tr>
-                          <td>ADSP</td>
-                          <td>합격</td>
-                      </tr>
-                      <tr>
-                          <td>리눅스 마스터 2급</td>
-                          <td>합격</td>
-                      </tr>
-                      <tr>
-                          <td>정보처리기사</td>
-                          <td>필기 합격/ 실기 준비중</td>
-                      </tr>
-                  </tbody>
+                    <caption></caption>
+                    <thead>
+                        <tr>
+                            <th>내용</th>
+                            <th>상세</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>컴퓨터공학과</td>
+                            <td>졸업예정</td>
+                        </tr>
+                        <tr>
+                            <td>SQLD</td>
+                            <td>합격</td>
+                        </tr>
+                        <tr>
+                            <td>ADSP</td>
+                            <td>합격</td>
+                        </tr>
+                        <tr>
+                            <td>리눅스 마스터 2급</td>
+                            <td>합격</td>
+                        </tr>
+                        <tr>
+                            <td>정보처리기사</td>
+                            <td>필기 합격/ 실기 준비중</td>
+                        </tr>
+                    </tbody>
                 </table>
             </section>
         </div>
 
-
-
-        <!-- 우측 사이드바 -->
         <div id="right-sidebar">
-            <div id="calendar"></div>
-            <div id="current-time-display"></div>
+            <div id="firework-image-container"></div>
+
+            <div class="gradient-and-widgets">
+                <div class="calendar-time-wrapper">
+                    <div id="current-time-display"></div>
+                    <div id="calendar"></div>
+                </div>
+                <textarea id="memo-area" placeholder="메모를 입력하세요..." rows="5"></textarea>
+            </div>
         </div>
     </div>
 
@@ -350,11 +361,11 @@
                                     <th>SAT</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>`;
+                            <tbody>`;
 
             let day = 1;
             for (let i = 0; i < 6; i++) {
+                html += `<tr>`;
                 for (let j = 0; j < 7; j++) {
                     if (i === 0 && j < firstDay) {
                         html += `<td></td>`;
@@ -367,7 +378,6 @@
                 }
                 html += `</tr>`;
                 if (day > lastDate) break;
-                html += `<tr>`;
             }
 
             html += `</tbody></table>`;
