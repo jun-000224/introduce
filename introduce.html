@@ -29,7 +29,7 @@
         /* 우측 사이드바 */
         #right-sidebar {
         width: 400px;
-        height: 100vh; /* 화면 전체 높이 사용 */
+        height: 100vh; 
         padding: 20px;
         box-sizing: border-box;
         border-left: 1px solid gray;
@@ -42,7 +42,7 @@
 
         display: flex;
         flex-direction: column;
-        justify-content: flex-end; /* 내부 요소를 하단으로 정렬 */
+        justify-content: flex-end; 
         align-items: center;
         color: #333;
         font-family: "맑은 고딕", Malgun Gothic, sans-serif;
@@ -176,22 +176,20 @@
         
     #right-sidebar {
         width: 200px;
-        height: 100vh; /* 화면 전체 높이 사용 */
+        height: 100vh; 
         padding: 20px;
         box-sizing: border-box;
         border-left: 1px solid gray;
 
-        /* 불꽃놀이(맨 위) -> 검은색 -> 흰색(맨 아래)으로 바뀌는 배경 */
         background:
-            /* 불꽃놀이 이미지 */
-            url('media/firework.png') no-repeat center top,
-            /* 위에서 투명 -> 검은색으로 변하는 그라데이션 */
-            linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 20%),
-            /* 위에서 투명 -> 흰색으로 변하는 그라데이션 */
-            linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%);
-        background-size: cover, 100% 100%, 100% 100%; /* 배경 크기 조정 */
-        background-position: center top, top, top; /* 배경 위치 조정 */
 
+            url('media/firework.png') no-repeat center top,
+ 
+            linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 20%),
+            
+            linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%);
+        background-size: cover, 100% 100%, 100% 100%; 
+        background-position: center top, top, top; 
 
         display: flex;
         flex-direction: column;
@@ -211,7 +209,7 @@
             <h1 style="color:white">Dong Jun Lee</h1>    
             <p style="text-shadow:#222; color:white;">"너 개발자가 되어라"</p>
             <p style="color:white"><small>Incheon, Korea</small></p>
-            <p style="color:white"><small>mu032061@naver.com</small></p>   
+            <p style="color:white"><small>abc123@naver.com</small></p>   
 
             <h2 style="color:white">Github</h2>
             <a href="https://github.com/jun-000224" target="_blank"><small>jun-000224</small></a>
