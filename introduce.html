@@ -16,7 +16,7 @@
 
         /* 좌측 사이드바 */
         #left-sidebar {
-            width: 300px;
+            width: 260px;
             background: linear-gradient(to bottom, #2e3192, #8e2de2, #ffffff);
             padding: 20px;
             box-sizing: border-box;
@@ -148,7 +148,7 @@
         }
 
         #calendar table {
-            width: 100%;
+            width: 50%;
             border-collapse: collapse;
         }
 
@@ -163,7 +163,7 @@
         }
 
         #calendar td {
-            height: 30px;
+            height: 20px;
             color: black;
         }
 
@@ -174,12 +174,31 @@
         }
 
         
-        /* 우측 사이드바 시간 표시 */
-        #right-sidebar #current-time-display {
-            margin-top: 20px;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: black;
+    #right-sidebar {
+        width: 200px;
+        height: 100vh; /* 화면 전체 높이 사용 */
+        padding: 20px;
+        box-sizing: border-box;
+        border-left: 1px solid gray;
+
+        /* 불꽃놀이(맨 위) -> 검은색 -> 흰색(맨 아래)으로 바뀌는 배경 */
+        background:
+            /* 불꽃놀이 이미지 */
+            url('media/firework.png') no-repeat center top,
+            /* 위에서 투명 -> 검은색으로 변하는 그라데이션 */
+            linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 20%),
+            /* 위에서 투명 -> 흰색으로 변하는 그라데이션 */
+            linear-gradient(to bottom, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%);
+        background-size: cover, 100% 100%, 100% 100%; /* 배경 크기 조정 */
+        background-position: center top, top, top; /* 배경 위치 조정 */
+
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* 내부 요소를 하단으로 정렬 */
+        align-items: center;
+        color: #333;
+        font-family: "맑은 고딕", Malgun Gothic, sans-serif;
         }
 
     </style>
